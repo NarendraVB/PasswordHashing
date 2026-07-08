@@ -1,12 +1,13 @@
 from src.hasher import hash_password, verify_password
-
+from src.benchmark import benchmark_password
 
 def main():
     while True:
         print("\n===== Password Hashing Demo =====")
         print("1. Hash Password")
         print("2. Verify Password")
-        print("3. Exit")
+        print("3. Benchmark Cost Factor")
+        print("4. Exit")
 
         choice = input("\nChoose an option: ")
 
@@ -31,8 +32,13 @@ def main():
                 print("\n❌ Password incorrect.")
 
         elif choice == "3":
+            password = input("\nEnter password for benchmarking: ")
+            benchmark_password(password)
+
+        elif choice == "4":
             print("\nGoodbye!")
             break 
+        
         else:
             print("\nInvalid option. Please try again.")
 
