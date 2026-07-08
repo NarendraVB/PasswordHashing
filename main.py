@@ -1,11 +1,12 @@
-from src.hasher import hash_password
+from src.hasher import hash_password, verify_password
 
 
 def main():
     while True:
         print("\n===== Password Hashing Demo =====")
         print("1. Hash Password")
-        print("2. Exit")
+        print("2. Verify Password")
+        print("3. Exit")
 
         choice = input("\nChoose an option: ")
 
@@ -22,11 +23,20 @@ def main():
             print("\nHash generated successfully.")
 
         elif choice == "2":
-            print("\nGoodbye!")
-            break
+          password = input("\nEnter password: ")
+          stored_hash = input("Enter stored hash: ")
+          if verify_password(password, stored_hash):
+                print("\n✅ Password verified.")
+          else:
+                print("\n❌ Password incorrect.")
 
+        elif choice == "3":
+            print("\nGoodbye!")
+            break 
         else:
-            print("\nInvalid option.")
+            print("\nInvalid option. Please try again.")
+
+
 
 
 if __name__ == "__main__":

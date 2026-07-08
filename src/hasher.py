@@ -10,3 +10,12 @@ def hash_password(password: str) -> str:
     hashed_password = bcrypt.hashpw(password_bytes, salt)
 
     return hashed_password.decode("utf-8")
+
+
+
+def verify_password(password: str, hashed_password: str) -> bool:
+    
+    return bcrypt.checkpw(
+        password.encode("utf-8"),
+        hashed_password.encode("utf-8")
+    )
