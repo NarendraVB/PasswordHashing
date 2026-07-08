@@ -1,6 +1,7 @@
 from src.hasher import hash_password, verify_password
 from src.benchmark import benchmark_password
 from src.comparison import compare_algorithms
+from src.salt_demo import demonstrate_salt
 
 def main():
     while True:
@@ -9,7 +10,8 @@ def main():
         print("2. Verify Password")
         print("3. Benchmark Cost Factor")
         print("4. Compare SHA-256 and bcrypt")
-        print("5. Exit")
+        print("5. Demonstrate Salt Generation")
+        print("6. Exit")
 
         choice = input("\nChoose an option: ")
 
@@ -37,12 +39,16 @@ def main():
             password = input("\nEnter password for benchmarking: ")
             benchmark_password(password)
 
-            
+
         elif choice == "4":
             password = input("\nEnter password for comparison: ")
             compare_algorithms(password)
 
         elif choice == "5":
+            password = input("\nEnter password for salt demonstration: ")
+            demonstrate_salt(password)
+
+        elif choice == "6":
             print("\nGoodbye!")
             break 
 
